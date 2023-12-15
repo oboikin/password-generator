@@ -1,3 +1,4 @@
 # Password-generator
 
-![image](https://github.com/IlyaNorean/password-generator/assets/130694758/3ef9d958-6461-4db3-9819-b44bf8c70ea0)
+![image](https://github.com/IlyaNorean/password-generator/assets/130694758/ba10da7d-efca-47c5-8022-e492b0f5d7be)
+
