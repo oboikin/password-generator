@@ -1,0 +1,449 @@
+:root {
+    --form-control-color: #b76b84;
+    --form-control-disabled: #959495;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background-color: #ecf0f1;
+    transition: background-color 0.5s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+#container {
+    width: 80%;
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    max-width: 600px;
+    transition: box-shadow 0.3s ease;
+    margin: 20px 20px 20px 20px;
+}
+
+h1 {
+    color: #355c7d;
+    margin-bottom: 20px;
+}
+
+input {
+    width: calc(100% - 10px);
+    padding: 10px;
+    margin: 10px 0;
+    box-sizing: border-box;
+    border: 1px solid #bdc3c7;
+    border-radius: 4px;
+    transition: border-color 0.3s ease;
+}
+
+input:focus {
+    border-color: #3498db;
+}
+
+label {
+    display: block;
+    text-align: left;
+    margin-top: 10px;
+    color: #555;
+    font-weight: bold;
+}
+
+button {
+    width: calc(50% - 10px);
+    background-color: #b76b84;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 1em;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 10px 2px 0px 2px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+    background-color: #f67280;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+#password {
+    margin-top: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+#lengthLabel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#lengthValue {
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.checkbox-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.checkbox-group label {
+    width: 70%;
+    text-align: left;
+    margin-top: 0;
+    color: #555;
+}
+
+.checkbox-group input {
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+}
+
+#passwordStrength {
+    margin-top: 20px;
+    font-size: 16px;
+    color: #333;
+    display: none;
+}
+
+input[type="text"] {
+    width: 100%;
+    border-radius: 0.5em;
+}
+
+input[type="range"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+
+    &:focus {
+      outline-color: #f8b195;
+    }
+  }
+
+  input[type="range"]::-webkit-slider-runnable-track {
+    -webkit-appearance: none;
+    appearance: none;
+    background: rgb(246, 114, 128);
+    background: -webkit-linear-gradient(
+      left,
+      rgba(246, 114, 128, 1) 0%,
+      rgba(192, 108, 132, 1) 50%,
+      rgba(53, 92, 125, 1) 100%
+    );
+    background: linear-gradient(
+      to right,
+      rgba(246, 114, 128, 1) 0%,
+      rgba(192, 108, 132, 1) 50%,
+      rgba(53, 92, 125, 1) 100%
+    );
+    filter: progid:DXImageTransform.Microsoft.gradient(
+      startColorstr="#f67280",
+      endColorstr="#355c7d",
+      GradientType=1
+    );
+  }
+
+  input[type="range"]::-moz-range-track {
+    -moz-appearance: none;
+    appearance: none;
+    height: 5px;
+    border-radius: 15px;
+    background: rgb(246, 114, 128);
+    background: -moz-linear-gradient(
+      left,
+      rgba(246, 114, 128, 1) 0%,
+      rgba(192, 108, 132, 1) 50%,
+      rgba(53, 92, 125, 1) 100%
+    );
+    background: linear-gradient(
+      to right,
+      rgba(246, 114, 128, 1) 0%,
+      rgba(192, 108, 132, 1) 50%,
+      rgba(53, 92, 125, 1) 100%
+    );
+    filter: progid:DXImageTransform.Microsoft.gradient(
+      startColorstr="#f67280",
+      endColorstr="#355c7d",
+      GradientType=1
+    );
+  }
+  
+  input[type="range"]::-ms-track {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    height: 3px;
+    background: rgb(246, 114, 128);
+    background: -moz-linear-gradient(
+      left,
+      rgba(246, 114, 128, 1) 0%,
+      rgba(192, 108, 132, 1) 50%,
+      rgba(53, 92, 125, 1) 100%
+    );
+    background: -webkit-linear-gradient(
+      left,
+      rgba(246, 114, 128, 1) 0%,
+      rgba(192, 108, 132, 1) 50%,
+      rgba(53, 92, 125, 1) 100%
+    );
+    background: linear-gradient(
+      to right,
+      rgba(246, 114, 128, 1) 0%,
+      rgba(192, 108, 132, 1) 50%,
+      rgba(53, 92, 125, 1) 100%
+    );
+    filter: progid:DXImageTransform.Microsoft.gradient(
+      startColorstr="#f67280",
+      endColorstr="#355c7d",
+      GradientType=1
+    );
+  }
+
+  input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  border: 2px solid #f8b195;
+  border-radius: 50%;
+  height: 20px;
+  width: 20px;
+  position: relative;
+  bottom: 8px;
+  background: #222 center no-repeat;
+  background-size: 50%;
+  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.4);
+  cursor: grab;
+    
+    &:active {
+      cursor: grabbing;
+    }
+}
+
+  input[type="range"]::-moz-range-thumb {
+    -moz-appearance: none;
+    appearance: none;
+    border: 2px solid #f8b195;
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+    position: relative;
+    bottom: 8px;
+    background: #222 center no-repeat;
+    background-size: 50%;
+    box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.4);
+    cursor: grab;
+    
+    &:active {
+      cursor: grabbing;
+    }
+  }
+
+  input[type="range"]::-ms-thumb {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: 2px solid #f8b195;
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+    position: relative;
+    bottom: 8px;
+    background: #222 center no-repeat;
+    background-size: 50%;
+    box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.4);
+    cursor: grab;
+    
+    &:active {
+      cursor: grabbing;
+    }
+  }
+
+input[type="checkbox"] {
+    /* Add if not using autoprefixer */
+    -webkit-appearance: none;
+    /* Remove most all native input styles */
+    appearance: none;
+    /* For iOS < 15 */
+    background-color: var(--form-background);
+    /* Not removed via appearance */
+    margin: 0;
+  
+    font: inherit;
+    color: currentColor;
+    width: 1.15em;
+    height: 1.15em;
+    border: 0.15em solid currentColor;
+    border-radius: 0.5em;
+    transform: translateY(-0.075em);
+  
+    display: grid;
+    place-content: center;
+}
+  
+input[type="checkbox"]::before {
+    content: "";
+    width: 0.65em;
+    height: 0.65em;
+    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+    transform: scale(0);
+    transform-origin: bottom left;
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em var(--form-control-color);
+    /* Windows High Contrast Mode */
+    background-color: CanvasText;
+}
+  
+input[type="checkbox"]:checked::before {
+    transform: scale(1);
+}
+
+
+.switch-container {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 3.5em;
+    height: 2em;
+    margin: 20px 20px 20px 20px;
+  }
+  
+  /* Hide default HTML checkbox */
+  .switch-container input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* The slider */
+  .switch-container .slider {
+    --background: linear-gradient(to right, #355c7d, #372957);
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--background);
+    transition: background-color 0.5s;
+    border-radius: 30px;
+  }
+  
+  .switch-container .slider:before {
+    position: absolute;
+    content: "";
+    height: 1.4em;
+    width: 1.4em;
+    border-radius: 50%;
+    left: 10%;
+    bottom: 15%;
+    box-shadow: inset 15px -4px 0px 15px #ebe6aa;
+    background: var(--background);
+    transition: transform 0.5s, box-shadow 0.5s;
+  }
+  
+  .switch-container input:checked + .slider {
+    background-color: #355c7d;
+  }
+  
+  .switch-container input:checked + .slider:before {
+    transform: translateX(100%);
+    box-shadow: inset 8px -4px 0px 0px #f8f8f4;
+  }
+
+
+.dark-mode {
+    background-color: #282A36;
+    color: #F8F8F2;
+}  
+.dark-mode #container {
+    background-color: #44475A;
+}
+
+.dark-mode h1 {
+    color: #F8F8F2;
+}
+
+.dark-mode label {
+    color: #F8F8F2;
+}
+
+.dark-mode button {
+    background-color: #a97de7;
+}
+
+.dark-mode button:hover {
+    background-color: #BD93F9;
+}
+
+.dark-mode input[type="checkbox"]::before {
+    box-shadow: inset 1em 1em #BD93F9;
+}
+
+.dark-mode input[type="range"]::-webkit-slider-runnable-track {
+
+    background: -webkit-linear-gradient(
+      left,
+      rgba(255, 121, 198) 0%,
+      rgba(189, 147, 249) 50%,
+      rgba(139, 233, 253) 100%
+    );
+    background: linear-gradient(
+      to right,
+      rgba(255, 121, 198) 0%,
+      rgba(189, 147, 249) 50%,
+      rgba(139, 233, 253) 100%
+    );
+}
+  
+.dark-mode   input[type="range"]::-moz-range-track {
+
+    background: -moz-linear-gradient(
+      left,
+      rgba(255, 121, 198) 0%,
+      rgba(189, 147, 249) 50%,
+      rgba(139, 233, 253) 100%
+    );
+    background: linear-gradient(
+      to right,
+      rgba(255, 121, 198) 0%,
+      rgba(189, 147, 249) 50%,
+      rgba(139, 233, 253) 100%
+    );
+}
+
+.dark-mode   input[type="range"]::-ms-track {
+    background: -moz-linear-gradient(
+      left,
+      rgba(255, 121, 198) 0%,
+      rgba(189, 147, 249) 50%,
+      rgba(139, 233, 253) 100%
+    );
+    background: -webkit-linear-gradient(
+      left,
+      rgba(255, 121, 198) 0%,
+      rgba(189, 147, 249) 50%,
+      rgba(139, 233, 253) 100%
+    );
+    background: linear-gradient(
+      to right,
+      rgba(255, 121, 198) 0%,
+      rgba(189, 147, 249) 50%,
+      rgba(139, 233, 253) 100%
+    );
+}
