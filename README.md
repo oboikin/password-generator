@@ -17,14 +17,6 @@ A modern, secure, and user-friendly password generator with a beautiful UI and d
   - Special characters
 
 
-## Screenshots
-
-### Light Mode
-![Light Mode](https://i.imgur.com/kMyIyQI.png)
-
-### Dark Mode
-![Dark Mode](https://i.imgur.com/wdRWHvC.png)
-
 ## Technologies Used
 
 - HTML5

@@ -138,6 +138,12 @@ async function copyPasswordToClipboard() {
 function changeTheme() {
     document.body.classList.toggle("dark-mode");
     const isDarkMode = document.body.classList.contains("dark-mode");
+    const themeIcon = document.querySelector('.theme-icon');
+    
+    // Update theme icon
+    themeIcon.textContent = isDarkMode ? '🌙' : '☀️';
+    
+    // Save theme preference
     localStorage.setItem("darkMode", isDarkMode);
 }
 
@@ -146,6 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const savedDarkMode = localStorage.getItem("darkMode") === "true";
     if (savedDarkMode) {
         document.body.classList.add("dark-mode");
+        document.querySelector('.theme-icon').textContent = '☀️';
     }
     
     // Generate initial password
