@@ -1,36 +1,36 @@
-// Константы для проверки силы пароля
+// Constants for password strength levels
 const PASSWORD_STRENGTH = {
     WEAK: 'weak',
     MEDIUM: 'medium',
     STRONG: 'strong'
 };
 
-// Функция для генерации случайного числа в заданном диапазоне
+// Function to generate a random integer in a given range
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-// Функция для проверки силы пароля
+// Function to check password strength
 function checkPasswordStrength(password) {
     let strength = 0;
     const strengthIndicator = document.getElementById('passwordStrength');
     
-    // Проверка длины
+    // Check password length
     if (password.length >= 12) strength += 1;
     
-    // Проверка наличия заглавных букв
+    // Check for uppercase letters
     if (/[A-Z]/.test(password)) strength += 1;
     
-    // Проверка наличия строчных букв
+    // Check for lowercase letters
     if (/[a-z]/.test(password)) strength += 1;
     
-    // Проверка наличия цифр
+    // Check for numbers
     if (/[0-9]/.test(password)) strength += 1;
     
-    // Проверка наличия специальных символов
+    // Check for special characters
     if (/[^A-Za-z0-9]/.test(password)) strength += 1;
     
-    // Определение уровня силы пароля
+    // Determine password strength level
     let strengthClass, strengthText;
     if (strength <= 2) {
         strengthClass = PASSWORD_STRENGTH.WEAK;
@@ -43,12 +43,12 @@ function checkPasswordStrength(password) {
         strengthText = 'Strong Password';
     }
     
-    // Обновление индикатора
+    // Update strength indicator
     strengthIndicator.textContent = strengthText;
     strengthIndicator.className = `strength-indicator strength-${strengthClass}`;
 }
 
-// Функция для генерации пароля
+// Function to generate password
 function generatePassword() {
     const length = document.getElementById("length").value;
     const includeUppercase = document.getElementById("includeUppercase").checked;
@@ -63,7 +63,7 @@ function generatePassword() {
     let password = "";
     const charsetArray = charset.split('');
     
-    // Гарантируем наличие хотя бы одного символа каждого выбранного типа
+    // Guarantee at least one character of each selected type
     if (includeUppercase) {
         password += "ABCDEFGHIJKLMNOPQRSTUVWXYZ"[getRandomInt(0, 25)];
     }
@@ -74,42 +74,42 @@ function generatePassword() {
         password += "!@#$%^&*()_+-=[]{}|;:,.<>?"[getRandomInt(0, 19)];
     }
     
-    // Дополняем пароль случайными символами до нужной длины
+    // Fill the rest of the password with random characters
     while (password.length < length) {
         password += charsetArray[getRandomInt(0, charsetArray.length - 1)];
     }
     
-    // Перемешиваем символы в пароле
+    // Shuffle the password characters
     password = password.split('').sort(() => Math.random() - 0.5).join('');
 
     const passwordField = document.getElementById("password");
     passwordField.value = password;
     checkPasswordStrength(password);
     
-    // Добавляем анимацию
+    // Add animation
     passwordField.classList.add('password-generated');
     setTimeout(() => {
         passwordField.classList.remove('password-generated');
     }, 500);
 }
 
-// Функция для обновления значения длины пароля
+// Function to update password length value
 function updateLengthValue() {
     const lengthValue = document.getElementById("lengthValue");
     const lengthInput = document.getElementById("length");
     const value = lengthInput.value;
     
-    // Обновляем текст
+    // Update text
     lengthValue.textContent = value;
     
-    // Обновляем прогресс ползунка
+    // Update slider progress
     const min = lengthInput.min || 0;
     const max = lengthInput.max || 100;
     const percent = ((value - min) / (max - min)) * 100;
     lengthInput.style.setProperty('--range-progress', `${percent}%`);
 }
 
-// Функция для копирования пароля в буфер обмена
+// Function to copy password to clipboard
 async function copyPasswordToClipboard() {
     const passwordField = document.getElementById("password");
     const copyButton = document.getElementById("copyPasswordButton");
@@ -117,7 +117,7 @@ async function copyPasswordToClipboard() {
     try {
         await navigator.clipboard.writeText(passwordField.value);
         
-        // Анимация успешного копирования
+        // Success animation
         copyButton.innerHTML = '<span class="icon">✓</span> Copied!';
         copyButton.classList.add('copied');
         
@@ -134,24 +134,24 @@ async function copyPasswordToClipboard() {
     }
 }
 
-// Функция для переключения темы
+// Function to toggle theme
 function changeTheme() {
     document.body.classList.toggle("dark-mode");
     const isDarkMode = document.body.classList.contains("dark-mode");
     localStorage.setItem("darkMode", isDarkMode);
 }
 
-// Проверяем сохраненную тему при загрузке
+// Check saved theme on load
 document.addEventListener('DOMContentLoaded', () => {
     const savedDarkMode = localStorage.getItem("darkMode") === "true";
     if (savedDarkMode) {
         document.body.classList.add("dark-mode");
     }
     
-    // Генерируем начальный пароль
+    // Generate initial password
     generatePassword();
     
-    // Инициализируем прогресс ползунка
+    // Initialize slider progress
     updateLengthValue();
 });
 

@@ -1,3 +1,4 @@
+/* Root variables for consistent theming */
 :root {
     --primary-color: #6366f1;
     --secondary-color: #4f46e5;
@@ -10,6 +11,7 @@
     --error-color: #ef4444;
 }
 
+/* Base styles */
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     text-align: center;
@@ -24,6 +26,7 @@ body {
     color: var(--text-color);
 }
 
+/* Main container styles */
 #container {
     width: 90%;
     background-color: var(--container-bg);
@@ -125,7 +128,7 @@ button:active {
     font-size: 1.1rem;
 }
 
-/* Стили для чекбоксов */
+/* Checkbox styles */
 .checkbox-group {
     display: flex;
     justify-content: space-between;
@@ -195,7 +198,7 @@ button:active {
     color: var(--success-color);
 }
 
-/* Стили для темной темы */
+/* Dark mode styles */
 .dark-mode {
     --background-color: #0f172a;
     --container-bg: #1e293b;
@@ -214,7 +217,7 @@ button:active {
     color: var(--text-color);
 }
 
-/* Анимации */
+/* Animations */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
@@ -233,53 +236,7 @@ button:active {
     background-color: var(--success-color) !important;
 }
 
-/* Стили для переключателя темы */
-.switch-container {
-    position: relative;
-    display: inline-block;
-    width: 60px;
-    height: 34px;
-}
-
-.switch-container input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
-
-.slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: var(--border-color);
-    transition: .4s;
-    border-radius: 34px;
-}
-
-.slider:before {
-    position: absolute;
-    content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    transition: .4s;
-    border-radius: 50%;
-}
-
-input:checked + .slider {
-    background-color: var(--primary-color);
-}
-
-input:checked + .slider:before {
-    transform: translateX(26px);
-}
-
-/* Адаптивность */
+/* Responsive styles */
 @media (max-width: 480px) {
     #container {
         padding: 1.5rem;
@@ -311,6 +268,7 @@ input:checked + .slider:before {
     }
 }
 
+/* Header styles */
 .header {
     display: flex;
     justify-content: space-between;
@@ -318,6 +276,7 @@ input:checked + .slider:before {
     margin-bottom: 2rem;
 }
 
+/* Password display area */
 .password-display {
     position: relative;
     margin-bottom: 2rem;
@@ -338,6 +297,7 @@ input:checked + .slider:before {
     background-color: var(--primary-color);
 }
 
+/* Password settings section */
 .password-settings {
     background-color: var(--background-color);
     padding: 1.5rem;
@@ -345,6 +305,7 @@ input:checked + .slider:before {
     margin-bottom: 1.5rem;
 }
 
+/* Password strength indicator */
 .strength-indicator {
     margin: 1rem 0;
     padding: 0.5rem 1rem;
@@ -354,23 +315,32 @@ input:checked + .slider:before {
     text-align: center;
 }
 
+/* Button styles */
+.button-group {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.generate-button, .copy-button {
+    flex: 1;
+    margin: 0;
+}
+
 .generate-button {
-    width: 100%;
-    margin-top: 1rem;
-    padding: 1rem;
-    font-size: 1.1rem;
     background-color: var(--primary-color);
 }
 
-.generate-button:hover {
+.copy-button {
     background-color: var(--secondary-color);
 }
 
-.icon {
-    margin-right: 0.5rem;
+.generate-button:hover, .copy-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px var(--shadow-color);
 }
 
-/* Стили для ползунка длины пароля */
+/* Range slider styles */
 .range-slider {
     position: relative;
     width: 100%;
@@ -381,7 +351,6 @@ input:checked + .slider:before {
 }
 
 input[type="range"] {
-    -webkit-appearance: none;
     width: 100%;
     height: 6px;
     background: transparent;
@@ -413,7 +382,7 @@ input[type="range"]::-webkit-slider-runnable-track {
     transform: translateY(-50%);
 }
 
-/* Стили для переключателя темы */
+/* Theme switch styles */
 .theme-switch {
     position: relative;
     display: inline-block;
@@ -469,62 +438,7 @@ input:checked + .theme-slider .theme-icon::after {
     opacity: 1;
 }
 
-/* Обновленные стили для кнопок */
-.button-group {
-    display: flex;
-    gap: 1rem;
-    margin-top: 1.5rem;
-}
-
-.generate-button, .copy-button {
-    flex: 1;
-    margin: 0;
-}
-
-.generate-button {
-    background-color: var(--primary-color);
-}
-
-.copy-button {
-    background-color: var(--secondary-color);
-}
-
-.generate-button:hover, .copy-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px var(--shadow-color);
-}
-
-/* Обновленные стили для темной темы */
-.dark-mode .theme-slider {
-    background-color: var(--secondary-color);
-}
-
-.dark-mode input:checked + .theme-slider {
-    background-color: var(--primary-color);
-}
-
-.dark-mode input[type="range"]::-webkit-slider-thumb {
-    background: var(--secondary-color);
-}
-
-.dark-mode input[type="range"]::-webkit-slider-runnable-track {
-    background: linear-gradient(to right, var(--secondary-color) 0%, var(--secondary-color) var(--range-progress), var(--border-color) var(--range-progress), var(--border-color) 100%);
-}
-
-/* Обновленные стили для темной темы */
-.dark-mode .checkbox-group input[type="checkbox"] {
-    background-color: var(--border-color);
-}
-
-.dark-mode .checkbox-group input[type="checkbox"]:checked {
-    background-color: var(--secondary-color);
-}
-
-.dark-mode .checkbox-group input[type="checkbox"]::before {
-    background-color: var(--container-bg);
-}
-
-/* Адаптивность для кнопок */
+/* Responsive styles */
 @media (max-width: 480px) {
     .button-group {
         flex-direction: column;
