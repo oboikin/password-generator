@@ -5,45 +5,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Password Generator</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="app.js" defer></script>
 </head>
 <body>
-    <label class="switch-container">
-        <input type="checkbox" onclick="changeTheme()">
-        <span class="slider"></span>
-    </label>
-    
     <div id="container">
-        <h1>Password Generator</h1>
-
-        <div id="lengthLabel">
-            <label for="length">Password Length:</label>
-            <span id="lengthValue">15</span>
+        <div class="header">
+            <h1>Password Generator</h1>
+            <label class="theme-switch">
+                <input type="checkbox" onclick="changeTheme()">
+                <span class="theme-slider">
+                    <span class="theme-icon">🌙</span>
+                </span>
+            </label>
         </div>
-        <input type="range" id="length" value="15" min="1" max="50" oninput="updateLengthValue()">
+
+        <div class="password-display">
+            <input type="text" id="password" readonly placeholder="Your password will appear here">
+        </div>
+
+        <div class="password-settings">
+            <div id="lengthLabel">
+                <label for="length">Password Length:</label>
+                <span id="lengthValue">15</span>
+            </div>
+            <div class="range-slider">
+                <input type="range" id="length" value="15" min="1" max="50" oninput="updateLengthValue()">
+            </div>
+            
+            <div class="checkbox-group">
+                <label for="includeUppercase">Include Uppercase Letters</label>
+                <input type="checkbox" id="includeUppercase" checked>
+            </div>
+
+            <div class="checkbox-group">
+                <label for="includeNumbers">Include Numbers</label>
+                <input type="checkbox" id="includeNumbers" checked>
+            </div>
+
+            <div class="checkbox-group">
+                <label for="includeSpecialChars">Include Special Characters</label>
+                <input type="checkbox" id="includeSpecialChars" checked>
+            </div>
+        </div>
+
+        <div id="passwordStrength" class="strength-indicator"></div>
         
-        <div class="checkbox-group">
-            <label for="includeUppercase">Include Uppercase:</label>
-            <input type="checkbox" id="includeUppercase" checked>
+        <div class="button-group">
+            <button onclick="generatePassword()" class="generate-button">
+                <span class="icon">🔑</span>
+                Generate Password
+            </button>
+            <button id="copyPasswordButton" onclick="copyPasswordToClipboard()" class="copy-button">
+                <span class="icon">📋</span>
+                Copy Password
+            </button>
         </div>
-
-        <div class="checkbox-group">
-            <label for="includeNumbers">Include Numbers:</label>
-            <input type="checkbox" id="includeNumbers" checked>
-        </div>
-
-        <div class="checkbox-group">
-            <label for="includeSpecialChars">Include Special Characters:</label>
-            <input type="checkbox" id="includeSpecialChars" checked>
-        </div>
-        
-        <div id="button-container">
-            <button onclick="generatePassword()">Generate Password</button>
-            <button id="copyPasswordButton" onclick="copyPasswordToClipboard()">Copy Password</button>
-        </div>
-        
-        <input type="text" id="password" readonly>
-
     </div>
 </body>
 </html>
